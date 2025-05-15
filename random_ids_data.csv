@@ -1,0 +1,6 @@
+duration,orig_bytes,resp_bytes,missed_bytes,orig_pkts,orig_ip_bytes,resp_pkts,resp_ip_bytes,proto_icmp,proto_tcp,proto_udp,conn_state_OTH,conn_state_REJ,conn_state_RSTO,conn_state_RSTOS0,conn_state_RSTR,conn_state_RSTRH,conn_state_S0,conn_state_S1,conn_state_S2,conn_state_S3,conn_state_SF,conn_state_SH,conn_state_SHR
+135.10200929989014,1917,44979,957,92,79292,78,1300,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0,1
+444.24172181497477,96962,44231,699,76,33036,50,50333,1,0,1,1,0,1,1,0,1,1,0,1,0,0,1,0
+372.59553973883453,66194,29125,295,23,14075,63,98607,1,1,1,0,0,1,1,1,0,0,1,1,0,0,1,0
+546.1157710375621,89393,1892,442,9,65919,45,20852,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0
+371.60713925369095,94815,4067,791,72,93036,75,57986,1,0,0,0,1,1,1,1,1,0,1,0,0,0,1,0

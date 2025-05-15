@@ -1,0 +1,6 @@
+duration,orig_bytes,resp_bytes,missed_bytes,orig_pkts,orig_ip_bytes,resp_pkts,resp_ip_bytes,proto_icmp,proto_tcp,proto_udp,conn_state_OTH,conn_state_REJ,conn_state_RSTO,conn_state_RSTOS0,conn_state_RSTR,conn_state_RSTRH,conn_state_S0,conn_state_S1,conn_state_S2,conn_state_S3,conn_state_SF,conn_state_SH,conn_state_SHR
+2.998796,0,0,0,3,180,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+0.0,0,0,0,1,60,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+0.0,0,0,0,1,60,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+2.998804,0,0,0,3,180,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+0.0,0,0,0,1,60,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
