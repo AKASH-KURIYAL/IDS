@@ -1,15 +1,34 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 import pickle
 
 app = Flask(__name__)
 
-# Load your trained model (ensure the path is correct)
-with open('loaded_models/XGB_Model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
-with open('loaded_models/label_encoder.pkl','rb') as model_file:
-    label_encoder = pickle.load(model_file)
+def CNNModel(df):
+    with open('loaded_models/cnn_model.pkl', 'rb') as model_file:
+        model = pickle.load(model_file)
+    with open('loaded_models/cnn_scaler.pkl', 'rb') as model_file:
+        scaler = pickle.load(model_file)
+    normalized_df = scaler.transform(df)
+    prediction = model.predict(normalized_df)
+    predicted_index = np.argmax(prediction,axis=1)
+    label = ['Attack', 'Benign', 'C&C', 'C&C-FileDownload', 'C&C-HeartBeat', 'C&C-HeartBeat-FileDownload', 'C&C-Mirai', 'C&C-Torii', 'DDoS', 'FileDownload', 'Okiru', 'PartOfAHorizontalPortScan']
+    predicted_label = label[predicted_index[0]]
+    return predicted_label
 
+def NaiveBayes(df):
+    with open('loaded_models/naive_bayes_model.pkl', 'rb') as model_file:
+        model = pickle.load(model_file)
+    return model.predict(df)
+
+def DecisionTree(df):
+    with open('loaded_models/XGB_Model.pkl', 'rb') as model_file:
+        model = pickle.load(model_file)
+    with open('loaded_models/label_encoder.pkl', 'rb') as model_file:
+        label_encoder = pickle.load(model_file)
+    return label_encoder.inverse_transform(model.predict(df))
 
 @app.route('/')
 def index():
@@ -40,10 +59,10 @@ def predict():
         X = df[feature_columns]
 
         # Predict using the loaded model
-        predictions = model.predict(X)
+        predictions = DecisionTree(X)
 
         # Add predictions to DataFrame
-        df['Prediction'] = label_encoder.inverse_transform(predictions)
+        df['Prediction'] = predictions
 
         # Convert DataFrame to HTML
         result_html = df.to_html(classes='table table-bordered', index=False)
